@@ -1,93 +1,71 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // 1. Mobile Navigation Toggle
-    const navToggle = document.getElementById('navToggle');
-    const navMenu = document.getElementById('navMenu');
-
-    if (navToggle && navMenu) {
-        navToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-
-        // Close menu on link click
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-            });
-        });
+    // 1. Live Date Display
+    const dateDisplay = document.getElementById('currentDate');
+    if (dateDisplay) {
+        const today = new Date();
+        const options = { day: 'numeric', month: 'long', year: 'numeric' };
+        dateDisplay.textContent = today.toLocaleDateString('en-US', options);
     }
 
-    // 2. Command Search Filter
-    const cmdSearch = document.getElementById('cmdSearch');
-    const cmdCards = document.querySelectorAll('.cmd-card');
+    // 2. Global Search Filtering
+    const searchInput = document.getElementById('globalSearch');
+    const cmdItems = document.querySelectorAll('.cmd-item');
 
-    if (cmdSearch) {
-        cmdSearch.addEventListener('input', (e) => {
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
             const query = e.target.value.toLowerCase().trim();
 
-            cmdCards.forEach(card => {
-                const name = card.querySelector('.cmd-name').textContent.toLowerCase();
-                const desc = card.querySelector('.cmd-desc').textContent.toLowerCase();
-                const category = card.dataset.category ? card.dataset.category.toLowerCase() : '';
-
-                if (name.includes(query) || desc.includes(query) || category.includes(query)) {
-                    card.style.display = 'flex';
+            cmdItems.forEach(item => {
+                const text = item.getAttribute('data-search').toLowerCase();
+                if (text.includes(query)) {
+                    item.style.display = 'flex';
                 } else {
-                    card.style.display = 'none';
+                    item.style.display = 'none';
                 }
             });
         });
     }
 
-    // 3. Statistics Dashboard (API Placeholders)
-    // Update these values manually or hook them into your backend API endpoint later.
-    const initialStats = {
+    // 3. Statistics Dashboard Integration Placeholders
+    const metricsData = {
         servers: '12',
         users: '1,420',
         commands: '8,950',
-        uptime: '99.9%',
-        ping: '24ms'
+        uptime: '99.9%'
     };
 
-    function updateStats(data) {
-        document.getElementById('stat-servers').textContent = data.servers || '--';
-        document.getElementById('stat-users').textContent = data.users || '--';
-        document.getElementById('stat-commands').textContent = data.commands || '--';
-        document.getElementById('stat-uptime').textContent = data.uptime || '--';
-        document.getElementById('stat-ping').textContent = data.ping || '--';
+    function populateMetrics(data) {
+        const serversElem = document.getElementById('stat-servers');
+        const usersElem = document.getElementById('stat-users');
+        const commandsElem = document.getElementById('stat-commands');
+        const uptimeElem = document.getElementById('stat-uptime');
+
+        if (serversElem) serversElem.textContent = data.servers;
+        if (usersElem) usersElem.textContent = data.users;
+        if (commandsElem) commandsElem.textContent = data.commands;
+        if (uptimeElem) uptimeElem.textContent = data.uptime;
     }
 
-    updateStats(initialStats);
+    populateMetrics(metricsData);
 
-    // 4. Status Panel (API Placeholders)
-    const initialStatus = {
-        bot: true,
-        website: true,
-        api: true,
-        database: true
-    };
-
-    function updateStatus(status) {
-        const setServiceStatus = (indicatorId, textId, isOnline) => {
-            const indicator = document.getElementById(indicatorId);
-            const text = document.getElementById(textId);
+    // 4. Smooth Scrolling for Sidebar Icons
+    const navItems = document.querySelectorAll('.nav-item[href^="#"]');
+    navItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+            const targetId = item.getAttribute('href');
+            const targetElem = document.querySelector(targetId);
             
-            if (indicator && text) {
-                if (isOnline) {
-                    indicator.className = 'status-indicator online';
-                    text.textContent = 'Operational';
-                } else {
-                    indicator.className = 'status-indicator offline';
-                    text.textContent = 'Degraded Performance';
-                }
+            if (targetElem) {
+                e.preventDefault();
+                navItems.forEach(nav => nav.classList.remove('active'));
+                item.classList.add('active');
+                
+                targetElem.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
             }
-        };
-
-        setServiceStatus('status-bot-indicator', 'status-bot-text', status.bot);
-        setServiceStatus('status-web-indicator', 'status-web-text', status.website);
-        setServiceStatus('status-api-indicator', 'status-api-text', status.api);
-        setServiceStatus('status-db-indicator', 'status-db-text', status.database);
-    }
-
-    updateStatus(initialStatus);
+        });
+    });
 });
