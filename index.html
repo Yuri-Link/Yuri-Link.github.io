@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YuriLink - AI Assistant & Security Guardian</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#" class="brand">
+                <span class="brand-accent">Yuri</span>Link
+                <span class="brand-badge">AI</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav-menu" id="navMenu">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#security" class="nav-link">Security</a>
+                <a href="#stats" class="nav-link">Statistics</a>
+                <a href="#docs" class="nav-link">Documentation</a>
+                <a href="#status" class="nav-link">Status</a>
+                <a href="https://github.com/yuri-link" target="_blank" class="nav-btn-mobile">GitHub</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="hero">
+            <div class="hero-container">
+                <div class="hero-badge">Next-Gen Discord Intelligence</div>
+                <h1 class="hero-title">Meet <span class="gradient-text">YuriLink</span></h1>
+                <p class="hero-description">
+                    A cute futuristic AI assistant and server security guardian designed to protect, monitor, and streamline your Discord community.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn btn-primary">Invite Bot</a>
+                    <a href="https://github.com/yuri-link" target="_blank" class="btn btn-secondary">GitHub</a>
+                    <a href="#docs" class="btn btn-outline">Documentation</a>
+                    <a href="#status" class="btn btn-outline">Status</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="section" id="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Core <span class="gradient-text">Features</span></h2>
+                    <p class="section-subtitle">Engineered for server safety, utility, and modern automation.</p>
+                </div>
+                <div class="grid grid-3">
+                    <div class="glass-card feature-card">
+                        <div class="card-icon icon-purple">01</div>
+                        <h3>Security System</h3>
+                        <p>Automated server protection mechanisms that shield your community against unauthorized actions and threats.</p>
+                    </div>
+                    <div class="glass-card feature-card">
+                        <div class="card-icon icon-pink">02</div>
+                        <h3>Audit Logging</h3>
+                        <p>Comprehensive activity tracking that records critical server updates and event logs cleanly.</p>
+                    </div>
+                    <div class="glass-card feature-card">
+                        <div class="card-icon icon-blue">03</div>
+                        <h3>Moderation Tools</h3>
+                        <p>Fast, direct moderation controls that empower your staff to keep channels safe and welcoming.</p>
+                    </div>
+                    <div class="glass-card feature-card">
+                        <div class="card-icon icon-blue">04</div>
+                        <h3>Discord Utilities</h3>
+                        <p>A suite of daily commands and server helper tools built for administrators and members alike.</p>
+                    </div>
+                    <div class="glass-card feature-card feature-card-wide">
+                        <div class="card-icon icon-pink">05</div>
+                        <h3>Future AI Features</h3>
+                        <p>Upcoming artificial intelligence integrations designed to make server management conversational, intuitive, and proactive.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Security Showcase -->
+        <section class="section" id="security">
+            <div class="container">
+                <div class="security-layout">
+                    <div class="security-info">
+                        <div class="badge-tag">Protection Architecture</div>
+                        <h2>Advanced <span class="gradient-text">Server Security</span></h2>
+                        <p>YuriLink monitors server events continuously, giving staff full control over security configurations and real-time logs.</p>
+                        
+                        <ul class="security-list">
+                            <li>
+                                <strong>Audit Logs:</strong> Structured tracking stored reliably for administrative review.
+                            </li>
+                            <li>
+                                <strong>Server Protection:</strong> Proactive measures to mitigate raid attempts and malicious edits.
+                            </li>
+                            <li>
+                                <strong>Real-Time Monitoring:</strong> Continuous background evaluation of server changes.
+                            </li>
+                            <li>
+                                <strong>Security Tools:</strong> Modular management cogs customizable to your server's needs.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="glass-card terminal-card">
+                        <div class="terminal-header">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                            <span class="terminal-title">yuri-link.log</span>
+                        </div>
+                        <div class="terminal-body">
+                            <p class="log-line"><span class="log-time">[SYSTEM]</span> Initializing security cogs...</p>
+                            <p class="log-line"><span class="log-success">[SUCCESS]</span> cogs.security loaded.</p>
+                            <p class="log-line"><span class="log-success">[SUCCESS]</span> audit_logs.json connected.</p>
+                            <p class="log-line"><span class="log-info">[INFO]</span> Monitoring active on guilds.</p>
+                            <p class="log-line log-cursor"><span class="log-prompt">></span> YuriLink ready.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistics Dashboard -->
+        <section class="section" id="stats">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">System <span class="gradient-text">Metrics</span></h2>
+                    <p class="section-subtitle">Real-time stats display powered by internal performance counters.</p>
+                </div>
+                <div class="grid grid-5">
+                    <div class="glass-card stat-card">
+                        <div class="stat-value" id="stat-servers">--</div>
+                        <div class="stat-label">Servers</div>
+                    </div>
+                    <div class="glass-card stat-card">
+                        <div class="stat-value" id="stat-users">--</div>
+                        <div class="stat-label">Users</div>
+                    </div>
+                    <div class="glass-card stat-card">
+                        <div class="stat-value" id="stat-commands">--</div>
+                        <div class="stat-label">Commands Used</div>
+                    </div>
+                    <div class="glass-card stat-card">
+                        <div class="stat-value" id="stat-uptime">--</div>
+                        <div class="stat-label">Uptime</div>
+                    </div>
+                    <div class="glass-card stat-card">
+                        <div class="stat-value" id="stat-ping">--</div>
+                        <div class="stat-label">Latency</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Documentation Preview -->
+        <section class="section" id="docs">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Command <span class="gradient-text">Documentation</span></h2>
+                    <p class="section-subtitle">Explore available features and command syntax.</p>
+                </div>
+
+                <div class="doc-search-wrapper">
+                    <input type="text" id="cmdSearch" class="doc-search-input" placeholder="Search commands or modules...">
+                </div>
+
+                <div class="grid grid-3" id="commandGrid">
+                    <div class="glass-card cmd-card" data-category="security">
+                        <div class="cmd-badge">Security</div>
+                        <h3 class="cmd-name">/security status</h3>
+                        <p class="cmd-desc">View the current protection status and active security modules for your server.</p>
+                        <code class="cmd-syntax">Syntax: /security status</code>
+                    </div>
+
+                    <div class="glass-card cmd-card" data-category="audit">
+                        <div class="cmd-badge">Audit</div>
+                        <h3 class="cmd-name">/audit logs</h3>
+                        <p class="cmd-desc">Fetch and inspect recent audit events stored by the monitoring subsystem.</p>
+                        <code class="cmd-syntax">Syntax: /audit logs [limit]</code>
+                    </div>
+
+                    <div class="glass-card cmd-card" data-category="utility">
+                        <div class="cmd-badge">Utility</div>
+                        <h3 class="cmd-name">/ping</h3>
+                        <p class="cmd-desc">Check bot latency and API connection health in real time.</p>
+                        <code class="cmd-syntax">Syntax: /ping</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Status Dashboard -->
+        <section class="section" id="status">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Service <span class="gradient-text">Status</span></h2>
+                    <p class="section-subtitle">Live health status of YuriLink core systems.</p>
+                </div>
+
+                <div class="glass-card status-container">
+                    <div class="status-row">
+                        <div class="status-name">
+                            <span class="status-indicator online" id="status-bot-indicator"></span>
+                            Bot Instance
+                        </div>
+                        <div class="status-state" id="status-bot-text">Operational</div>
+                    </div>
+                    <div class="status-row">
+                        <div class="status-name">
+                            <span class="status-indicator online" id="status-web-indicator"></span>
+                            Website Platform
+                        </div>
+                        <div class="status-state" id="status-web-text">Operational</div>
+                    </div>
+                    <div class="status-row">
+                        <div class="status-name">
+                            <span class="status-indicator online" id="status-api-indicator"></span>
+                            API Gateway
+                        </div>
+                        <div class="status-state" id="status-api-text">Operational</div>
+                    </div>
+                    <div class="status-row">
+                        <div class="status-name">
+                            <span class="status-indicator online" id="status-db-indicator"></span>
+                            Audit Store
+                        </div>
+                        <div class="status-state" id="status-db-text">Operational</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <div class="brand">
+                    <span class="brand-accent">Yuri</span>Link
+                </div>
+                <p>Futuristic Discord server assistant and security guardian.</p>
+            </div>
+            <div class="footer-links">
+                <a href="https://github.com/yuri-link" target="_blank">GitHub Repository</a>
+                <a href="#docs">Documentation</a>
+                <a href="#status">Status</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 YuriLink Project. Built for GitHub Pages.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
