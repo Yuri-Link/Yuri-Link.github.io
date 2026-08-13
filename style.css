@@ -105,8 +105,13 @@ body::before {
 /* --- Typography & Utilities --- */
 .gradient-text {
     background: linear-gradient(45deg, var(--primary-soft), var(--primary));
+    /* WebKit (Chrome, Safari, newer Edge) */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    /* Standard CSS */
+    background-clip: text;
+    color: transparent;
+    
     text-shadow: 0 0 20px rgba(199, 125, 255, 0.3);
 }
 
