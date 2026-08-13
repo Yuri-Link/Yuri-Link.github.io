@@ -45,6 +45,12 @@
             scroll-behavior: smooth;
         }
 
+        /* --- Hardware Acceleration (Fixes Lag) --- */
+        .glass-panel, .glass-nav, .bg-shape {
+            will-change: transform;
+            transform: translateZ(0);
+        }
+
         /* --- Animated Background Elements --- */
         body::before {
             content: '';
@@ -58,10 +64,10 @@
         .bg-shape {
             position: fixed;
             border-radius: 50%;
-            filter: blur(80px);
+            filter: blur(35px); /* Optimized for performance */
             z-index: -1;
             animation: float 20s infinite ease-in-out;
-            opacity: 0.5;
+            opacity: 0.4;
         }
 
         .shape-1 { width: 300px; height: 300px; background: var(--primary); top: -10%; left: -10%; }
@@ -78,18 +84,20 @@
         .cursor-dot, .cursor-outline {
             position: fixed;
             top: 0; left: 0;
-            transform: translate(-50%, -50%);
             border-radius: 50%;
             z-index: 9999;
             pointer-events: none;
+            will-change: transform;
         }
         .cursor-dot {
             width: 8px; height: 8px;
             background-color: var(--primary-light);
+            margin: -4px 0 0 -4px;
         }
         .cursor-outline {
             width: 40px; height: 40px;
             border: 2px solid var(--primary-soft);
+            margin: -20px 0 0 -20px;
             transition: width 0.2s, height 0.2s, background-color 0.2s;
         }
 
@@ -127,8 +135,8 @@
 
         .glass-panel {
             background: var(--glass-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            backdrop-filter: blur(8px); /* Optimized for performance */
+            -webkit-backdrop-filter: blur(8px);
             border: 1px solid var(--glass-border);
             border-radius: 24px;
             box-shadow: var(--glass-shadow);
@@ -478,7 +486,7 @@
                     <div id="auth-success" class="hidden">
                         <div class="success-message">
                             <i class="fas fa-check-circle"></i>
-                            <p>Authentication successful! YuriLink is sending you a DM right now.</p>
+                            <p>Authentication processing! YuriLink is securely managing your request.</p>
                         </div>
                     </div>
                 </div>
@@ -536,22 +544,26 @@
         window.addEventListener('load', hideLoader);
         setTimeout(hideLoader, 1000); // Fail-safe timer
 
-        // --- Custom Cursor ---
+        // --- Hardware Optimized Custom Cursor ---
         const cursorDot = document.querySelector('.cursor-dot');
         const cursorOutline = document.querySelector('.cursor-outline');
 
-        window.addEventListener('mousemove', (e) => {
-            const posX = e.clientX;
-            const posY = e.clientY;
+        let mouseX = 0, mouseY = 0;
+        let outlineX = 0, outlineY = 0;
 
-            cursorDot.style.left = `${posX}px`;
-            cursorDot.style.top = `${posY}px`;
-            
-            cursorOutline.animate({
-                left: `${posX}px`,
-                top: `${posY}px`
-            }, { duration: 150, fill: "forwards" });
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
         });
+
+        function renderCursor() {
+            outlineX += (mouseX - outlineX) * 0.2;
+            outlineY += (mouseY - outlineY) * 0.2;
+            cursorOutline.style.transform = `translate3d(${outlineX}px, ${outlineY}px, 0)`;
+            requestAnimationFrame(renderCursor);
+        }
+        requestAnimationFrame(renderCursor);
 
         // Cursor hover effects on interactables
         const interactables = document.querySelectorAll('a, button, .jelly-hover');
@@ -629,10 +641,11 @@
             }
         });
 
-        // --- Discord OAuth2 Strategy ---
+        // --- Discord OAuth2 Connection Strategy ---
         const DISCORD_CLIENT_ID = 'YOUR_CLIENT_ID_PLACEHOLDER';
         const REDIRECT_URI = encodeURIComponent('https://yuri-link.github.io');
-        const API_ENDPOINT = 'https://api.yourdomain.com/v1/auth/discord/review';
+        // REPLACE THIS with your actual ngrok or cloudflare tunnel URL
+        const API_ENDPOINT = 'https://a1b2-34-56-78.ngrok-free.app/api/review'; 
 
         const loginBtn = document.getElementById('discord-login-btn');
 
@@ -646,11 +659,23 @@
             const code = urlParams.get('code');
 
             if (code) {
+                // UI Updates
                 document.getElementById('auth-section').classList.add('hidden');
                 const successDiv = document.getElementById('auth-success');
                 successDiv.classList.remove('hidden');
                 document.getElementById('review').scrollIntoView();
 
+                // Backend Fetch Request to your bot API
+                fetch(API_ENDPOINT, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ code: code })
+                })
+                .then(res => res.json())
+                .then(data => console.log("Bot Response:", data))
+                .catch(err => console.error("Error connecting to bot:", err));
+
+                // Clean the URL bar so the code doesn't stick around
                 window.history.replaceState({}, document.title, window.location.pathname);
             }
         });
