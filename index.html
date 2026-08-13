@@ -3,294 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YuriLink - Dashboard</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <title>YuriLink | Portfolio & Bot</title>
     <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
 
-    <!-- Top Bar Navigation Header -->
-    <header class="top-bar">
-        <div class="top-bar-left">
-            <span class="user-handle">@YURILINK</span>
-            <span class="divider">|</span>
-            <span class="jp-title">現在のプロジェクト</span>
-            <span class="divider">//</span>
-            <span class="project-tag">PROJECT YURILINK 001</span>
+    <!-- Loading Screen -->
+    <div class="loader-wrapper">
+        <div class="loader-jelly"></div>
+    </div>
+
+    <!-- Animated Background Elements -->
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+    <div class="bg-shape shape-3"></div>
+
+    <!-- Navigation -->
+    <nav class="glass-nav">
+        <div class="nav-content">
+            <div class="logo">YL</div>
+            <ul class="nav-links">
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#yurilink">YuriLink Bot</a></li>
+                <li><a href="#review">Reviews</a></li>
+            </ul>
         </div>
-        <div class="top-bar-right">
-            <span class="status-track">SYSTEM OPERATIONAL</span>
-            <span class="date-display" id="currentDate">13 August, 2026</span>
-        </div>
-    </header>
+    </nav>
 
-    <!-- Main Dashboard Body -->
-    <div class="dashboard-wrapper">
-
-        <!-- Floating Left Sidebar Navigation -->
-        <aside class="sidebar">
-            <div class="avatar-capsule">
-                <div class="avatar-img">YL</div>
-            </div>
-            <nav class="nav-icons">
-                <a href="#hero" class="nav-item active" title="Dashboard">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
-                </a>
-                <a href="#features" class="nav-item" title="Features">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
-                </a>
-                <a href="#security" class="nav-item" title="Security">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                </a>
-                <a href="#stats" class="nav-item" title="Statistics">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
-                </a>
-                <a href="#docs" class="nav-item" title="Documentation">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
-                </a>
-                <a href="#status" class="nav-item" title="Status">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
-                </a>
-            </nav>
-            <a href="https://github.com/yuri-link" target="_blank" class="nav-item github-link" title="GitHub">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-            </a>
-        </aside>
-
-        <!-- Main Workspace Content -->
-        <main class="main-content">
-
-            <!-- Breadcrumb Navigation -->
-            <div class="breadcrumb">
-                DASHBOARD / <span>YURILINK CORE</span>
-            </div>
-
-            <!-- Top Search Capsule -->
-            <div class="search-capsule">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                <input type="text" id="globalSearch" placeholder="Search features, commands, or audit systems...">
-            </div>
-
-            <!-- Main Dashboard Grid Layout -->
-            <div class="dashboard-grid">
-
-                <!-- Left Column -->
-                <div class="grid-col col-main">
-
-                    <!-- Hero Banner -->
-                    <section class="dash-card hero-card" id="hero">
-                        <div class="hero-text">
-                            <span class="sub-label">YuriLink Systems</span>
-                            <h1>Welcome to YuriLink</h1>
-                            <p>Your futuristic AI assistant and server security guardian.</p>
-                            <a href="#" class="pill-btn primary">Invite Bot</a>
-                        </div>
-                        <div class="hero-illustration">
-                            <div class="anime-art-placeholder">
-                                <span>AI CORE</span>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- Features Section -->
-                    <section class="section-block" id="features">
-                        <div class="section-header">
-                            <h2>Core Modules</h2>
-                            <a href="#docs" class="view-all">view all</a>
-                        </div>
-                        <div class="modules-grid">
-                            <div class="dash-card mini-card">
-                                <div class="card-icon">01</div>
-                                <h3>Security System</h3>
-                                <p>Automated server defense and raid mitigation.</p>
-                                <span class="tag">Active</span>
-                            </div>
-                            <div class="dash-card mini-card">
-                                <div class="card-icon">02</div>
-                                <h3>Audit Logging</h3>
-                                <p>Structured tracking for every critical server event.</p>
-                                <span class="tag">Active</span>
-                            </div>
-                            <div class="dash-card mini-card">
-                                <div class="card-icon">03</div>
-                                <h3>Moderation Tools</h3>
-                                <p>Fast controls to manage channels and members easily.</p>
-                                <span class="tag">Active</span>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- System Performance Gauge -->
-                    <section class="dash-card activity-card" id="stats">
-                        <h3>Total Workload Processed</h3>
-                        <div class="progress-info">
-                            <span class="progress-label">System Performance Index</span>
-                            <span class="progress-value">88%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 88%;"></div>
-                        </div>
-                    </section>
-
-                    <!-- Command Documentation Preview -->
-                    <section class="section-block" id="docs">
-                        <div class="section-header">
-                            <h2>Command Directory</h2>
-                        </div>
-                        <div class="commands-list">
-                            <div class="dash-card cmd-item" data-search="security status">
-                                <div class="cmd-info">
-                                    <strong>/security status</strong>
-                                    <p>Display active server protection modules.</p>
-                                </div>
-                                <span class="pill-tag">Security</span>
-                            </div>
-                            <div class="dash-card cmd-item" data-search="audit logs">
-                                <div class="cmd-info">
-                                    <strong>/audit logs</strong>
-                                    <p>Inspect recent event logs stored in database.</p>
-                                </div>
-                                <span class="pill-tag">Audit</span>
-                            </div>
-                            <div class="dash-card cmd-item" data-search="ping">
-                                <div class="cmd-info">
-                                    <strong>/ping</strong>
-                                    <p>Measure real time gateway connection latency.</p>
-                                </div>
-                                <span class="pill-tag">Utility</span>
-                            </div>
-                        </div>
-                    </section>
-
+    <main>
+        <!-- About Me Section -->
+        <section id="about" class="section-container hidden-element">
+            <div class="about-grid glass-panel jelly-hover">
+                <div class="profile-col">
+                    <div class="pfp-container glow-effect">
+                        <img src="pfp.png" alt="Profile Picture" id="profile-pic" onerror="this.src='https://via.placeholder.com/150/a855f7/ffffff?text=PFP'">
+                    </div>
+                    <h1 class="gradient-text">Yuri</h1>
+                    <h3 class="subtitle">Developer & Creator</h3>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-btn" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-btn" title="Ko-fi"><i class="fas fa-mug-hot"></i></a>
+                        <a href="#" class="social-btn" title="Patreon"><i class="fab fa-patreon"></i></a>
+                    </div>
                 </div>
-
-                <!-- Middle Column -->
-                <div class="grid-col col-mid">
-
-                    <!-- Security Overview Card -->
-                    <section class="dash-card side-card" id="security">
-                        <div class="card-header-small">
-                            <h3>Security System</h3>
-                            <span class="link-label">view all</span>
-                        </div>
-                        <div class="info-block">
-                            <strong>Audit Logs</strong>
-                            <p>Continuous monitoring active.</p>
-                        </div>
-                        <div class="info-block">
-                            <strong>Server Protection</strong>
-                            <p>Shielding against malicious edits.</p>
-                        </div>
-                    </section>
-
-                    <!-- Statistics Card -->
-                    <section class="dash-card side-card">
-                        <h3>Metrics Overview</h3>
-                        <div class="stat-row">
-                            <span class="stat-key">Active Servers</span>
-                            <span class="stat-val" id="stat-servers">--</span>
-                        </div>
-                        <div class="stat-row">
-                            <span class="stat-key">Total Users</span>
-                            <span class="stat-val" id="stat-users">--</span>
-                        </div>
-                        <div class="stat-row">
-                            <span class="stat-key">Commands Executed</span>
-                            <span class="stat-val" id="stat-commands">--</span>
-                        </div>
-                        <div class="stat-row">
-                            <span class="stat-key">System Uptime</span>
-                            <span class="stat-val" id="stat-uptime">--</span>
-                        </div>
-                    </section>
-
-                    <!-- Access Card -->
-                    <section class="dash-card side-card">
-                        <h3>Documentation</h3>
-                        <p class="small-text">Explore setup guides, environment variables, and cog architecture.</p>
-                        <a href="https://github.com/yuri-link" target="_blank" class="pill-btn secondary">View Repository</a>
-                    </section>
-
-                </div>
-
-                <!-- Right Column -->
-                <div class="grid-col col-right">
-
-                    <!-- Audit Stream & Notifications -->
-                    <section class="dash-card side-card">
-                        <div class="card-header-small">
-                            <h3>Live Notifications</h3>
-                            <span class="link-label">See all</span>
-                        </div>
-                        <div class="notification-list">
-                            <div class="notification-item">
-                                <div class="notif-icon">S</div>
-                                <div class="notif-text">
-                                    <strong>Security cogs verified</strong>
-                                    <p>cogs.security loaded successfully.</p>
-                                </div>
-                            </div>
-                            <div class="notification-item">
-                                <div class="notif-icon">A</div>
-                                <div class="notif-text">
-                                    <strong>Audit log stream connected</strong>
-                                    <p>audit_logs.json actively recording.</p>
-                                </div>
-                            </div>
-                            <div class="notification-item">
-                                <div class="notif-icon">U</div>
-                                <div class="notif-text">
-                                    <strong>System check clean</strong>
-                                    <p>No unauthorized actions detected.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- Status Panel -->
-                    <section class="dash-card side-card" id="status">
-                        <h3>Status Monitor</h3>
-                        <div class="status-list">
-                            <div class="status-entry">
-                                <span>Bot Instance</span>
-                                <span class="status-badge online" id="status-bot">Operational</span>
-                            </div>
-                            <div class="status-entry">
-                                <span>Website Platform</span>
-                                <span class="status-badge online" id="status-web">Operational</span>
-                            </div>
-                            <div class="status-entry">
-                                <span>API Gateway</span>
-                                <span class="status-badge online" id="status-api">Operational</span>
-                            </div>
-                            <div class="status-entry">
-                                <span>Database Store</span>
-                                <span class="status-badge online" id="status-db">Operational</span>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- Featured Preview Image Card -->
-                    <div class="dash-card featured-art-card">
-                        <div class="art-glow"></div>
-                        <div class="featured-content">
-                            <h4>YuriLink Framework</h4>
-                            <p>Modular Discord Cog Architecture</p>
+                
+                <div class="info-col">
+                    <h2>Hello, World! <span class="wave">👋</span></h2>
+                    <p>I'm a passionate developer specializing in Python, PySide6, Lua, and custom Discord bot architecture. I love creating beautiful, optimized, and automated systems.</p>
+                    
+                    <div class="projects-mini">
+                        <h3>Personal Projects</h3>
+                        <div class="project-tags">
+                            <span class="glass-tag">Desktop Hub Overlay</span>
+                            <span class="glass-tag">Arma Reforger Scripts</span>
+                            <span class="glass-tag">Custom MC Client</span>
                         </div>
                     </div>
-
                 </div>
+            </div>
+        </section>
 
+        <!-- YuriLink Bot Section -->
+        <section id="yurilink" class="section-container hidden-element">
+            <div class="bot-header">
+                <h2 class="gradient-text">YuriLink</h2>
+                <p class="bot-tagline">Advanced Moderation & Automation for your Discord Server</p>
+                <div class="bot-status">
+                    <span class="status-dot online"></span> All Systems Operational
+                </div>
             </div>
 
-            <!-- Footer -->
-            <footer class="dash-footer">
-                <p>&copy; 2026 YuriLink Project. Designed for GitHub Pages.</p>
-            </footer>
+            <div class="stats-row">
+                <div class="stat-card glass-panel">
+                    <i class="fas fa-server"></i>
+                    <h3 class="counter" data-target="150">0</h3>
+                    <p>Servers</p>
+                </div>
+                <div class="stat-card glass-panel">
+                    <i class="fas fa-users"></i>
+                    <h3 class="counter" data-target="25000">0</h3>
+                    <p>Users</p>
+                </div>
+                <div class="stat-card glass-panel">
+                    <i class="fas fa-bolt"></i>
+                    <h3 class="counter" data-target="99">0</h3>
+                    <p>Uptime %</p>
+                </div>
+            </div>
 
-        </main>
+            <div class="features-grid">
+                <div class="feature-card glass-panel jelly-hover">
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Advanced Security</h3>
+                    <p>Automated moderation, anti-spam, and comprehensive logging to keep your community safe.</p>
+                </div>
+                <div class="feature-card glass-panel jelly-hover">
+                    <div class="feature-icon"><i class="fas fa-robot"></i></div>
+                    <h3>Smart Automation</h3>
+                    <p>Custom webhooks, role management, and chat relay systems powered by local LLMs.</p>
+                </div>
+                <div class="feature-card glass-panel jelly-hover">
+                    <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Detailed Analytics</h3>
+                    <p>Generate deep insights and statistics about your server's growth and engagement.</p>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <a href="#" class="btn primary-btn jelly-btn"><i class="fab fa-discord"></i> Invite YuriLink</a>
+                <a href="#" class="btn secondary-btn jelly-btn"><i class="fas fa-book"></i> Documentation</a>
+            </div>
+        </section>
+
+        <!-- Discord Review System -->
+        <section id="review" class="section-container hidden-element">
+            <div class="review-panel glass-panel">
+                <div class="review-content">
+                    <h2>Leave a Review</h2>
+                    <p>Help me improve YuriLink! Authenticate with Discord to receive a review request via DM from the bot. One review per account to prevent spam.</p>
+                    
+                    <div class="auth-steps">
+                        <div class="step"><span class="step-num">1</span> Login below</div>
+                        <div class="step"><span class="step-num">2</span> Check your DMs</div>
+                        <div class="step"><span class="step-num">3</span> Submit review</div>
+                    </div>
+
+                    <div id="auth-section">
+                        <button id="discord-login-btn" class="btn blurple-btn jelly-btn">
+                            <i class="fab fa-discord"></i> Login with Discord
+                        </button>
+                    </div>
+                    
+                    <div id="auth-success" class="hidden">
+                        <div class="success-message">
+                            <i class="fas fa-check-circle"></i>
+                            <p>Authentication successful! YuriLink is sending you a DM right now.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="glass-footer">
+        <p>&copy; 2026 Yuri. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#" onclick="openModal('tos-modal')">Terms of Service</a>
+            <span class="divider">•</span>
+            <a href="#" onclick="openModal('privacy-modal')">Privacy Policy</a>
+        </div>
+    </footer>
+
+    <!-- Legal Modals -->
+    <div id="tos-modal" class="modal-overlay">
+        <div class="modal-content glass-panel">
+            <span class="close-modal" onclick="closeModal('tos-modal')">&times;</span>
+            <h2>Terms of Service</h2>
+            <div class="modal-body">
+                <p>Welcome to YuriLink. By inviting the bot to your server, you agree to the following terms...</p>
+                <p><em>(Replace this placeholder text with your actual TOS regarding bot usage, uptime guarantees, and server data.)</em></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="privacy-modal" class="modal-overlay">
+        <div class="modal-content glass-panel">
+            <span class="close-modal" onclick="closeModal('privacy-modal')">&times;</span>
+            <h2>Privacy Policy</h2>
+            <div class="modal-body">
+                <p>Your privacy is important. This policy outlines how YuriLink collects, uses, and protects your data...</p>
+                <p><em>(Replace this placeholder text with your actual Privacy Policy, especially detailing Discord data retention.)</em></p>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
