@@ -112,7 +112,7 @@ window.addEventListener('click', (e) => {
 const DISCORD_CLIENT_ID = 'YOUR_CLIENT_ID_PLACEHOLDER';
 const REDIRECT_URI = encodeURIComponent('https://yuri-link.github.io');
 // The endpoint on your Python/PySide/Cogs backend that receives the code
-const API_ENDPOINT = 'https://api.yourdomain.com/v1/auth/discord/review';
+const API_ENDPOINT = 'https://localhost:8080/v1/auth/discord/review';
 
 const loginBtn = document.getElementById('discord-login-btn');
 
